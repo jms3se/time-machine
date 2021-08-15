@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+marshmallow-sqlalchemy = "*"
+flask-sqlalchemy = "*"
+flask-marshmallow = "*"
+flask-bcrypt = "*"
+flask-restful = "*"
+python-dotenv = {extras = ["cli"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

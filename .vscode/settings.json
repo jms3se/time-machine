@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": "./.venv/bin/python3.8",
+  "python.defaultInterpreterPath": "./.venv/bin/python3.8",
+  "python.autoComplete.extraPaths": [
+    "./"
+  ],
+  "cSpell.words": [
+    "dotenv"
+  ]
+}
