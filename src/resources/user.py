@@ -11,3 +11,10 @@ class UserResource(Resource):
     def get():
         user = UserRepository.get()
         return jsonify({"user": user})
+
+    @staticmethod
+    @parse_params(
+        Argument("name", location="json", required=True, help="Name is required")
+    )
+    def post():
+        user = User.

@@ -11,6 +11,8 @@ flask-marshmallow = "*"
 flask-bcrypt = "*"
 flask-restful = "*"
 python-dotenv = {extras = ["cli"], version = "*"}
+flask-cors = "*"
+flask-jwt = "*"
 
 [dev-packages]
 

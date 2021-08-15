@@ -1,5 +1,6 @@
 from flask import Flask
 from flask.blueprints import Blueprint
+from flask_cors import CORS
 
 import config
 import routes
@@ -10,9 +11,12 @@ server = Flask(__name__)
 server.debug = config.DEBUG
 server.config["SQLALCHEMY_DATABASE_URI"] = config.DB_URI
 server.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = config.SQLALCHEMY_TRACK_MODIFICATIONS
+server.config["SECRET_KEY"] = config.SECRET_KEY
 
 db.init_app(server)
 db.app = server
+
+CORS(server, resources={r"/api/*": {"origins": "*"}})
 
 for blueprint in vars(routes).values():
     if isinstance(blueprint, Blueprint):
