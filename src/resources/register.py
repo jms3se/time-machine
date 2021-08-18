@@ -8,13 +8,7 @@ from utils import generate_hash
 from utils import check_hash
 from utils import parse_params
 
-class UserResource(Resource):
-    @staticmethod
-    def get(id):
-        user = UserRepository.get(id=id)
-
-        return jsonify({"user", user})
-
+class RegisterResource(Resource):
     @staticmethod
     @parse_params(
         Argument("name", location="json", required=True, help="Name is required"),

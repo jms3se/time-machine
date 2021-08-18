@@ -1,6 +1,9 @@
+import sys
+import os
+
 from flask import jsonify
 
-from . import get_redis_connection
+from src.database import get_redis_connection
 
 class BlocklistRepository:
     @staticmethod
