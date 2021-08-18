@@ -1,10 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 
 db = SQLAlchemy()
 
-timer_identifier = db.Table("timer_identifier", db.Model.metadata,
-    db.Column("tag_id", db.Integer, db.ForeingKey("tag.id")),
-    db.Column("timer_id", db.Integer, db.ForeingKey("timer.id"))
-)
-
 from .user import User
+from .timer import Timer
+from .tag import Tag

@@ -1,16 +1,15 @@
-from . import db, timer_identifier
+from . import db
+
 from utils import generate_hash, check_hash
 
-class Timer(db.Model, BaseModel, metaclass=MetaBaseModel):
-    __tablename__ "timers"
-
+class Timer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.String(200))
-    start = db.Column(db.Datetime)
+    start = db.Column(db.Date)
+    stop = db.Column(db.Date)
 
-    user_id = db.Column(db.Integer, db.ForeingKey("user.id"))
-    tags = db.relationship("Tag", secondary=timer_identifier)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
     def __init__(self, name, description, start, stop):
         self.name = name

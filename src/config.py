@@ -9,11 +9,20 @@ PORT = int(os.getenv("APPLICATION_PORT", "3000"))
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SECRET_KEY = os.getenv("SECRET_KEY", "epanenem")
 
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "epanenem")
+JWT_BLACKLIST_ENABLED = os.getenv("JWT_BLACKLIST_ENABLED", True)
+JWT_BLACKLIST_TOKEN_CHECKS = os.getenv("JWT_BLACKLIST_TOKEN_CHECKS", ['access', 'refresh'])
+
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_PORT = os.getenv("REDIS_PORT", "6379")
+REDIS_DB = os.getenv("REDIS_DB", 0)
+REDIS_DECODE_RESPONSES = os.getenv("REDIS_DECODE_RESPONSES", True)
+
 DB_CONTAINER = os.getenv("APPLICATION_DB_CONTAINER", "localhost")
 POSTGRES = {
     "user": os.getenv("APPLICATION_POSTGRES_USER", "postgres"),
     "pw": os.getenv("APPLICATION_POSTGRES_PW", "postgres"),
-    "host": os.getenv("APPLICATION_POSTGRES_HOST", DB_CONTAINER),
+    "host": os.getenv("APPLICATION_POSTGRES_HOST", "localhost"),
     "port": os.getenv("APPLICATION_POSTGRES_PORT", 5432),
     "db": os.getenv("APPLICATION_POSTGRES_DB", "postgres"),
 }
