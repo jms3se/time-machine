@@ -12,10 +12,8 @@ flask-bcrypt = "*"
 flask-restful = "*"
 python-dotenv = {extras = ["cli"], version = "*"}
 flask-cors = "*"
-flask-jwt = "*"
 flask-jwt-extended = "*"
 flask-migrate = "*"
-flask-script = "*"
 alembic = "*"
 jinja2 = "*"
 flask-cli = "*"
@@ -23,6 +21,7 @@ psycopg2-binary = "*"
 redis = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.8"
