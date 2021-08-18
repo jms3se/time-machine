@@ -5,10 +5,16 @@ from . import get_redis_connection
 class BlocklistRepository:
     @staticmethod
     def create(jti):
-        get_redis_connection().set(jti, "")
+        redis = get_redis_connection()
+
+        redis.set(jti, "")
 
         return jsonify({"message": "access token revoked"})
 
     @staticmethod
     def get(jti):
-        return get_redis_connection().get(jti)
+        redis = get_redis_connection()
+
+        result = redis.get(jti)
+
+        return result

@@ -1,9 +1,9 @@
-import redis
+from redis import Redis
 
 from src import config
 
 def get_redis_connection():
-    jwt_redis_blocklist = redis(
+    jwt_redis_blocklist = Redis(
         host=config.REDIS_HOST,
         port=config.REDIS_PORT,
         db=config.REDIS_DB,

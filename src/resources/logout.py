@@ -10,7 +10,7 @@ from repositories import BlocklistRepository
 class LogoutResource(Resource):
     @staticmethod
     @jwt_required()
-    def post(self):
+    def post():
         jti = get_jwt()["jti"]
 
         revoked_token = BlocklistRepository.create(jti=jti)
