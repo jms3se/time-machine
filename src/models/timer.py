@@ -8,6 +8,7 @@ class Timer(db.Model):
     description = db.Column(db.String(200))
     start = db.Column(db.Date)
     stop = db.Column(db.Date)
+    available = db.Column(db.Bool)
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
@@ -16,3 +17,14 @@ class Timer(db.Model):
         self.description = description
         self.start = start
         self.stop = stop
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        self.available = False
+        db.session.commit()

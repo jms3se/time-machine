@@ -10,17 +10,8 @@ class UserRepository:
         return user
 
     @staticmethod
-    def update(self, id, name):
-        user = self.get(id=id).one()
-        user.name = name
-
-        user.save()
-
-        return user
-
-    @staticmethod
     def get(id):
-        return User.query.filter_by(id=id)
+        return User.query.filter_by(id=id).first()
 
     @staticmethod
     def getByEmail(email):
