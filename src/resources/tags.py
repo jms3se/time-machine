@@ -4,38 +4,34 @@ from flask_restful.reqparse import Argument
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt_identity
 
-from schemas import timer_schema
-from schemas import timers_schema
-from repositories import TimerRepository
+from schemas import tag_schema
+from schemas import tags_schema
+from repositories import TagRepository
 from utils import parse_params
 
-class TimersResource(Resource):
+class TagsResource(Resource):
     @staticmethod
     @parse_params(
         Argument("name", location="json", required=True, help="Name is required"),
-        Argument("start", location="json", required=True, help="Start is required"),
         Argument("description", location="json", required=False),
-        Argument("stop", location="json", required=False)
     )
     @jwt_required()
-    def post(name, start, description, stop):
+    def post(name, description):
         user_id = get_jwt_identity()['id']
 
-        timer = TimerRepository.create(
+        tag = TagRepository.create(
             user_id=user_id,
             name=name,
-            start=start,
-            description=description,
-            stop=stop
+            description=description
         )
 
-        return timer_schema.jsonify(timer)
+        return tag_schema.jsonify(tag)
 
     @staticmethod
     @jwt_required()
     def get():
-        timers = TimerRepository.all()
+        tags = TagRepository.all()
 
-        result = timers_schema.dump(timers)
+        result = tags_schema.dump(tags)
 
         return jsonify(result)

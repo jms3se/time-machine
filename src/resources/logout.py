@@ -3,6 +3,7 @@ from flask_restful import Resource
 from flask_restful.reqparse import Argument
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import jwt_required
+from werkzeug.exceptions import InternalServerError
 
 from schemas import user_schema
 from repositories import BlocklistRepository
@@ -16,6 +17,6 @@ class LogoutResource(Resource):
         revoked_token = BlocklistRepository.create(jti=jti)
 
         if not revoked_token:
-            return {'message': 'Something went wrong'}, 500
+            raise InternalServerError("Something went wrong")
 
         return {'message': 'Logout'}

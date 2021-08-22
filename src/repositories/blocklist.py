@@ -1,6 +1,3 @@
-import sys
-import os
-
 from flask import jsonify
 
 from src.database import get_redis_connection

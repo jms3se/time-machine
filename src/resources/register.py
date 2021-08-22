@@ -4,8 +4,6 @@ from flask_restful.reqparse import Argument
 
 from schemas import user_schema
 from repositories import UserRepository
-from utils import generate_hash
-from utils import check_hash
 from utils import parse_params
 
 class RegisterResource(Resource):

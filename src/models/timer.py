@@ -1,8 +1,10 @@
 from . import db
+from . import Base
 
-from utils import generate_hash, check_hash
+from utils import generate_hash
+from utils import check_hash
 
-class Timer(db.Model):
+class Timer(db.Model, Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.String(200))
@@ -18,15 +20,3 @@ class Timer(db.Model):
         self.start = start
         self.description = description
         self.stop = stop
-
-    def save(self):
-        self.available = True
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-    def delete(self):
-        self.available = False
-        db.session.commit()
