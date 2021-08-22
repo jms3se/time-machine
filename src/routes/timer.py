@@ -9,4 +9,4 @@ TIMER_BLUEPRINT = Blueprint("timer", __name__)
 api = Api(TIMER_BLUEPRINT)
 
 api.add_resource(TimersResource, "/timers")
-api.add_resource(TimerResource, "/timer/<string:id>")
+api.add_resource(TimerResource, "/timers/<int:id>")

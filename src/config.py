@@ -18,6 +18,8 @@ REDIS_PORT = os.getenv("REDIS_PORT", "6379")
 REDIS_DB = os.getenv("REDIS_DB", 0)
 REDIS_DECODE_RESPONSES = os.getenv("REDIS_DECODE_RESPONSES", True)
 
+SENTRY_DNS = os.getenv("SENTRY_KEY", "https://b963fa126e6e48bc8623a727adaf7591@o288279.ingest.sentry.io/5920314")
+
 DB_CONTAINER = os.getenv("APPLICATION_DB_CONTAINER", "localhost")
 POSTGRES = {
     "user": os.getenv("APPLICATION_POSTGRES_USER", "postgres"),

@@ -1,8 +1,12 @@
 from flask import Flask
+from flask import json
 from flask.blueprints import Blueprint
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
+import werkzeug
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 
 import config
 import routes
@@ -23,8 +27,28 @@ db.init_app(server)
 db.app = server
 migrate = Migrate(server, db)
 jwt = JWTManager(server)
+sentry_sdk.init(
+    config.SENTRY_DNS,
+    integrations=[FlaskIntegration()],
+    auto_enabling_integrations=False,
+    traces_sample_rate=1.0
+)
 
 CORS(server, resources={r"/api/*": {"origins": "*"}})
+
+@server.errorhandler(werkzeug.exceptions.HTTPException)
+def handle_exception(e):
+    """Return JSON instead of HTML for HTTP errors."""
+    # start with the correct headers and status code from the error
+    response = e.get_response()
+    # replace the body with JSON
+    response.data = json.dumps({
+        "code": e.code,
+        "name": e.name,
+        "description": e.description,
+    })
+    response.content_type = "application/json"
+    return response
 
 @jwt.token_in_blocklist_loader
 def check_if_token_is_revoked(jwt_header, jwt_payload):

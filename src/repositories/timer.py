@@ -1,3 +1,5 @@
+from werkzeug.exceptions import NotFound
+
 from models import Timer
 
 class TimerRepository:
@@ -11,15 +13,23 @@ class TimerRepository:
 
     @staticmethod
     def get(id):
-        return Timer.query.filter_by(id=id).first()
+        timer = Timer.query.filter_by(id=id, available=True).first()
+
+        if not timer:
+            raise NotFound("timer not found")
+
+        return timer
 
     @staticmethod
     def all():
-        return Timer.query.all()
+        return Timer.query.filter_by(available=True)
 
     @staticmethod
     def update(id, name, start, description, stop):
-        timer = Timer.query.get(id=id)
+        timer = Timer.query.filter_by(id=id, available=True).first()
+
+        if not timer:
+            raise NotFound("timer not found")
 
         timer.name = name
         timer.start = start
@@ -32,7 +42,10 @@ class TimerRepository:
 
     @staticmethod
     def delete(id):
-        timer = Timer.query.get(id=id)
+        timer = Timer.query.filter_by(id=id, available=True).first()
+
+        if not timer:
+            raise NotFound("timer not found")
 
         timer.delete()
 

@@ -19,6 +19,8 @@ jinja2 = "*"
 flask-cli = "*"
 psycopg2-binary = "*"
 redis = "*"
+sentry-sdk = {extras = ["flask"], version = "*"}
+werkzeug = "*"
 
 [dev-packages]
 pylint = "*"
