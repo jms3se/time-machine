@@ -1,7 +1,5 @@
 from . import db
 from . import Base
-from utils import generate_hash
-from utils import check_hash
 
 timers = db.Table("timers", db.Model.metadata,
     db.Column("timer_id", db.Integer, db.ForeignKey("timer.id"), primary_key=True),

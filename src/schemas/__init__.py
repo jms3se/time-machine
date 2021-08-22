@@ -10,3 +10,6 @@ from .timer import timers_schema
 
 from .tag import tag_schema
 from .tag import tags_schema
+
+from .project import project_schema
+from .project import projects_schema

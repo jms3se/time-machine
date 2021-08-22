@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from . import db
-from . import hybrid_method
 from . import hybrid_property
 from . import Base
 from utils import generate_hash

@@ -3,3 +3,4 @@ from .blocklist import BlocklistRepository
 from .timer import TimerRepository
 from .tag import TagRepository
 from .timer_tag import TimerTagRepository
+from .project import ProjectRepository
