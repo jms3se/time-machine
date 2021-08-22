@@ -5,8 +5,9 @@ tine is an abbreviation of time machine
 ## To-Do Product (Road Map)
 
 - [x] Authentication
-- [ ] Timers
-- [ ] Tags
+- [x] Timers
+- [x] Tags
+- [x] Timer Tags
 - [ ] Projects
   - [ ] Price per hour
   - [ ] Price per tag
@@ -27,21 +28,22 @@ tine is an abbreviation of time machine
   - [x] Login
   - [x] Logout
 
-- [ ] CRUD timers
-  - [ ] Create
-  - [ ] Update
-  - [ ] Get - [All, One]
-  - [ ] Delete
+- [x] CRUD timers
+  - [x] Create
+  - [x] Update
+  - [x] Get - [All, One]
+  - [x] Delete
 
-- [ ] CRUD tags
-  - [ ] Create
-  - [ ] Update
-  - [ ] Get - [All, One]
-  - [ ] Delete
+- [x] CRUD tags
+  - [x] Create
+  - [x] Update
+  - [x] Get - [All, One]
+  - [x] Delete
 
-- [ ] CRUD Relation timers with tags
-  - [ ] Create
-  - [ ] Delete
+- [x] CRUD Relation timers with tags
+  - [x] Create
+  - [x] Delete
+  - [x] Get - [All]
 
 - [ ] CRUD projects
   - [ ] Create
