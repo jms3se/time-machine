@@ -13,9 +13,6 @@ tine is an abbreviation of time machine
 - [ ] Prices
 - [ ] Profile
   - [ ] Edit personal data
-- [ ] Export
-- [ ] Email Confirmation
-- [ ] LGPD
 - [ ] Teams
   - [ ] Permissions
   - [ ] Projects
@@ -72,10 +69,6 @@ tine is an abbreviation of time machine
   - [ ] Get
   - [ ] Update
 
-- [ ] CRUD LGPD
-  - [ ] Get
-  - [ ] Delete
-
 - [ ] CRUD teams
   - [ ] ???
 
@@ -96,6 +89,9 @@ tine is an abbreviation of time machine
   - [ ] Forgot Password
   - [ ] Reset Password
 
+- [ ] Export CSV
+- [ ] Import CSV
+
 ### Notifications
 
 - [ ] Email confirmation account
@@ -105,3 +101,10 @@ tine is an abbreviation of time machine
 
 - [ ] Search npm helmet alternatives for flask
 - [ ] Get user location on register
+- [ ] Two factor authentication
+
+### Compliance
+
+- [ ] LGPD
+- [ ] Political Privacy
+- [ ] Term of Use
