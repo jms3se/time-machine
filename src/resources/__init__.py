@@ -7,5 +7,7 @@ from .tag import TagResource
 from .tags import TagsResource
 from .timer_tag import TimerTagResource
 from .timer_tags import TimerTagsResource
+from .timer_project import TimerProjectResource
+from .timer_projects import TimerProjectsResource
 from .project import ProjectResource
 from .projects import ProjectsResource

@@ -13,6 +13,7 @@ tine is an abbreviation of time machine
 - [ ] Profile
   - [ ] Edit personal data
 - [ ] Export
+- [ ] Email Confirmation
 - [ ] LGPD
 - [ ] Teams
   - [ ] Permissions

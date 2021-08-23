@@ -1,20 +1,20 @@
 from werkzeug.exceptions import NotFound
 
 from models import Timer
-from models import Tag
+from models import Project
 
-class TimerTagRepository:
+class TimerProjectRepository:
     @staticmethod
-    def create(id, tag_id):
+    def create(id, project_id):
         timer = Timer.query.filter_by(id=id, available=True).first()
-        tag = Tag.query.filter_by(id=tag_id, available=True).first()
+        project = Project.query.filter_by(id=project_id, available=True).first()
 
-        timer.tags.append(tag)
+        timer.projects.append(project)
 
         timer.save()
 
         return {
-            "tag_id": tag.id,
+            "project_id": project.id,
             "timer_id": timer.id
         }
 
@@ -25,17 +25,17 @@ class TimerTagRepository:
         if not timer:
             raise NotFound("timer not found")
 
-        return timer.tags
+        return timer.projects
 
     @staticmethod
-    def delete(id, tag_id):
+    def delete(id, project_id):
         timer = Timer.query.filter_by(id=id, available=True).first()
-        tag = Tag.query.filter_by(id=tag_id, available=True).first()
+        project = Project.query.filter_by(id=project_id, available=True).first()
 
-        if not timer or not tag:
+        if not timer or not project:
             raise NotFound("not found")
 
-        timer.tags.remove(tag)
+        timer.projects.remove(project)
 
         timer.update()
 
