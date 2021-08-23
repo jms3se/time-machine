@@ -78,3 +78,30 @@ tine is an abbreviation of time machine
 
 - [ ] CRUD teams
   - [ ] ???
+
+## To-Do (Backlog)
+
+### Tests
+
+- [ ] Add tests to Authentication flow
+- [ ] Add tests to CRUD timers
+- [ ] Add tests to CRUD tags
+- [ ] Add tests to CRUD Relation timers with tags
+- [ ] Add tests to CRUD projects
+- [ ] Add tests to CRUD Relation timers with projects
+
+### Features
+
+- [ ] Password Flow
+  - [ ] Forgot Password
+  - [ ] Reset Password
+
+### Notifications
+
+- [ ] Email confirmation account
+- [ ] Reset password
+
+### Security
+
+- [ ] Search npm helmet alternatives for flask
+- [ ] Get user location on register
