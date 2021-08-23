@@ -9,7 +9,7 @@ tine is an abbreviation of time machine
 - [x] Tags
 - [x] Timer Tags
 - [x] Projects
-  - [ ] Price per hour
+- [ ] Prices
 - [ ] Profile
   - [ ] Edit personal data
 - [ ] Export
@@ -49,6 +49,12 @@ tine is an abbreviation of time machine
   - [x] Update
   - [x] Get - [All, One]
   - [x] Delete
+
+- [ ] CRUD prices
+  - [ ] Create
+  - [ ] Update
+  - [ ] Get - [All, One]
+  - [ ] Delete
 
 - [ ] CRUD profile
   - [ ] Get
