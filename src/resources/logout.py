@@ -1,11 +1,8 @@
-from flask.json import jsonify
 from flask_restful import Resource
-from flask_restful.reqparse import Argument
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import jwt_required
 from werkzeug.exceptions import InternalServerError
 
-from schemas import user_schema
 from repositories import BlocklistRepository
 
 class LogoutResource(Resource):

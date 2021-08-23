@@ -1,13 +1,14 @@
-from flask.json import jsonify
 from flask_restful import Resource
+from flask_restful import marshal_with
 from flask_restful.reqparse import Argument
 
-from schemas import user_schema
+from schemas import user_fields
 from repositories import UserRepository
 from utils import parse_params
 
 class RegisterResource(Resource):
     @staticmethod
+    @marshal_with(user_fields)
     @parse_params(
         Argument("name", location="json", required=True, help="Name is required"),
         Argument("email", location="json", required=True, help="Email is required"),
@@ -18,4 +19,4 @@ class RegisterResource(Resource):
             name=name, email=email, password=password
         )
 
-        return user_schema.jsonify(user)
+        return user

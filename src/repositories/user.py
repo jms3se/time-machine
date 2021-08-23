@@ -1,3 +1,6 @@
+from sqlalchemy.exc import DatabaseError
+from werkzeug.exceptions import BadRequest
+
 from models import User
 
 class UserRepository:
@@ -5,7 +8,10 @@ class UserRepository:
     def create(name, email, password):
         user = User(name, email, password)
 
-        user.save()
+        try:
+            user.save()
+        except DatabaseError:
+            raise BadRequest("Invalid parameters")
 
         return user
 

@@ -1,7 +1,7 @@
 from . import db
 from . import Base
 
-timers = db.Table("timers", db.Model.metadata,
+timers = db.Table("timer_tag", db.Model.metadata,
     db.Column("timer_id", db.Integer, db.ForeignKey("timer.id"), primary_key=True),
     db.Column("tag_id", db.Integer, db.ForeignKey("tag.id"), primary_key=True)
 )

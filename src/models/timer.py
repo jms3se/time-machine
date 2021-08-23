@@ -4,8 +4,8 @@ from . import Base
 class Timer(db.Model, Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
-    description = db.Column(db.String(200))
     start = db.Column(db.Date)
+    description = db.Column(db.String(200))
     stop = db.Column(db.Date)
     available = db.Column(db.Boolean)
 

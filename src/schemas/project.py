@@ -1,8 +1,11 @@
-from . import ma
+from flask_restful import fields
 
-class ProjectSchema(ma.Schema):
-    class Meta:
-        fields = ("id", "name", "description")
+project_fields = {
+    "id": fields.Integer,
+    "name": fields.String,
+    "description": fields.String
+}
 
-project_schema = ProjectSchema()
-projects_schema = ProjectSchema(many=True)
+project_list_fields = {
+    "items": fields.List(fields.Nested(project_fields), attribute="items"),
+}

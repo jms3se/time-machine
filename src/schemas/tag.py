@@ -1,8 +1,11 @@
-from . import ma
+from flask_restful import fields
 
-class TagSchema(ma.Schema):
-    class Meta:
-        fields = ("id", "name", "description")
+tag_fields = {
+    "id": fields.Integer,
+    "name": fields.String,
+    "description": fields.String
+}
 
-tag_schema = TagSchema()
-tags_schema = TagSchema(many=True)
+tag_list_fields = {
+    "items": fields.List(fields.Nested(tag_fields), attribute="items"),
+}

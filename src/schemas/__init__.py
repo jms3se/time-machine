@@ -2,14 +2,15 @@ from flask_marshmallow import Marshmallow
 
 ma = Marshmallow()
 
-from .user import user_schema
-from .user import users_schema
+from .user import user_fields
+from .user import user_list_fields
+from .user import user_login_fields
 
-from .timer import timer_schema
-from .timer import timers_schema
+from .timer import timer_fields
+from .timer import timer_list_fields
 
-from .tag import tag_schema
-from .tag import tags_schema
+from .tag import tag_fields
+from .tag import tag_list_fields
 
-from .project import project_schema
-from .project import projects_schema
+from .project import project_fields
+from .project import project_list_fields

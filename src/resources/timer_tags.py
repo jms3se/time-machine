@@ -1,10 +1,10 @@
-from flask import jsonify
 from flask_restful import Resource
+from flask_restful import marshal_with
 from flask_jwt_extended import jwt_required
 from flask_restful.reqparse import Argument
 
 from repositories import TimerTagRepository
-from schemas import tags_schema
+from schemas import tag_list_fields
 from utils import parse_params
 
 class TimerTagsResource(Resource):
@@ -22,10 +22,9 @@ class TimerTagsResource(Resource):
         return timer
 
     @staticmethod
+    @marshal_with(tag_list_fields)
     @jwt_required()
     def get(id):
         timer_tags = TimerTagRepository.get(id=id)
 
-        result = tags_schema.dump(timer_tags)
-
-        return jsonify(result)
+        return { "items": timer_tags }

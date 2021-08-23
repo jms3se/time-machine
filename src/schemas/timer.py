@@ -1,8 +1,13 @@
-from . import ma
+from flask_restful import fields
 
-class TimerSchema(ma.Schema):
-    class Meta:
-        fields = ("id", "name", "start", "stop", "description")
+timer_fields = {
+    "id": fields.Integer,
+    "name": fields.String,
+    "start": fields.String,
+    "description": fields.String,
+    "stop": fields.String,
+}
 
-timer_schema = TimerSchema()
-timers_schema = TimerSchema(many=True)
+timer_list_fields = {
+    "items": fields.List(fields.Nested(timer_fields), attribute="items"),
+}
