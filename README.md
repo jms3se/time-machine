@@ -92,9 +92,12 @@ tine is an abbreviation of time machine
 - [ ] Export CSV
 - [ ] Import CSV
 
+- [ ] Product plan (free, basic, team, enterprise)
+- [ ] Product Price by location
+
 ### Notifications
 
-- [ ] Email confirmation account
+- [ ] Email confirmation when register account
 - [ ] Reset password
 
 ### Security
